@@ -16,8 +16,15 @@
 </div>
 <br>
 
-<img src="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.png" height="75" alt="vim-plug">[![build](https://img.shields.io/github/actions/workflow/status/junegunn/vim-plug/test.yml?branch=master)](https://github.com/junegunn/vim-plug/actions/workflows/test.yml?query=branch%3Amaster)
-===
+<h1 title="vim-plug">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./plug-dark.png">
+    <img src="./plug.png" height="75" alt="vim-plug">
+  </picture>
+  <a href="https://github.com/junegunn/vim-plug/actions/workflows/test.yml?query=branch%3Amaster">
+    <img src="https://img.shields.io/github/actions/workflow/status/junegunn/vim-plug/test.yml?branch=master">
+  </a>
+</h1>
 
 A minimalist Vim plugin manager.
 
@@ -110,6 +117,7 @@ Add a vim-plug section to your `~/.vimrc` (or `stdpath('config') . '/init.vim'` 
 1. `call plug#end()` to update `&runtimepath` and initialize plugin system
     - Automatically executes `filetype plugin indent on` and `syntax enable`.
       You can revert the settings after the call. e.g. `filetype indent off`, `syntax off`, etc.
+1. Reload the file or restart Vim and run `:PlugInstall` to install plugins.
 
 #### Example
 
@@ -160,8 +168,6 @@ call plug#end()
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
 ```
-
-Reload .vimrc and `:PlugInstall` to install plugins.
 
 #### Example (Lua configuration for Neovim)
 
@@ -243,8 +249,8 @@ More examples can be found in:
 | `g:plug_timeout`    | 60                                | Time limit of each task in seconds (*Ruby & Python*)   |
 | `g:plug_retries`    | 2                                 | Number of retries in case of timeout (*Ruby & Python*) |
 | `g:plug_shallow`    | 1                                 | Use shallow clone                                      |
-| `g:plug_window`     | `vertical topleft new`            | Command to open plug window                            |
-| `g:plug_pwindow`    | `above 12new`                     | Command to open preview window in `PlugDiff`           |
+| `g:plug_window`     | `-tabnew`                         | Command to open plug window                            |
+| `g:plug_pwindow`    | `vertical rightbelow new`         | Command to open preview window in `PlugDiff`           |
 | `g:plug_url_format` | `https://git::@github.com/%s.git` | `printf` format to build repo URL (Only applies to the subsequent `Plug` commands) |
 
 
@@ -365,13 +371,6 @@ The installer takes the following steps when installing/updating a plugin:
     2. Execute post-update hooks
 
 The commands with the `!` suffix ensure that all steps are run unconditionally.
-
-### Articles
-
-- [Writing my own Vim plugin manager](http://junegunn.kr/2013/09/writing-my-own-vim-plugin-manager)
-- [Vim plugins and startup time](http://junegunn.kr/2014/07/vim-plugins-and-startup-time)
-- ~~[Thoughts on Vim plugin dependency](http://junegunn.kr/2013/09/thoughts-on-vim-plugin-dependency)~~
-    - *Support for Plugfile has been removed since 0.5.0*
 
 ### Collaborators
 
